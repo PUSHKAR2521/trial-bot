@@ -1,0 +1,1 @@
+{"version":2,"languages":{"nodejs-npm":{"specfileHash":"257bee97dfb75d13700a54a2242fc134","lockfileHash":"b2ab5f8a8ec626e9fbfd859883f13155","guessedImports":["@helpers/Validator","@helpers/BotUtils","@src/structures","@helpers/extenders","@src/database","@root/dashboard","dotenv","module-alias"],"guessedImportsHash":"13cd5db874493e8132a68c0f0bfccf24"}}}
