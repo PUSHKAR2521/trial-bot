@@ -37,8 +37,8 @@ module.exports = {
 
   DASHBOARD: {
     enabled: true, // enable or disable dashboard
-    baseURL: "http://localhost:8080/api/callback", // base url
-    failureURL: "https://localhost:8080", // failure redirect url
+    baseURL: "https://my-bot-o92m.onrender.com/api/callback", // base url
+    failureURL: "https://my-bot-o92m.onrender.com", // failure redirect url
     port: "8080", // port to run the bot on
   },
 
