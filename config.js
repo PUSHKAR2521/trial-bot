@@ -37,7 +37,7 @@ module.exports = {
 
   DASHBOARD: {
     enabled: true, // enable or disable dashboard
-    baseURL: "https://my-bot-o92m.onrender.com", // base url
+    baseURL: "https://my-bot-o92m.onrender.com/api/callback", // base url
     failureURL: "https://my-bot-o92m.onrender.com", // failure redirect url
     port: "8080", // port to run the bot on
   },
@@ -51,7 +51,7 @@ module.exports = {
   },
 
   MUSIC: {
-    ENABLED: true,
+    ENABLED: false,
     IDLE_TIME: 1440, // Time in seconds before the bot disconnects from an idle voice channel
     MAX_SEARCH_RESULTS: 5,
     DEFAULT_SOURCE: "YTM", // YT = Youtube, YTM = Youtube Music, SC = SoundCloud
@@ -104,13 +104,13 @@ module.exports = {
 
   PRESENCE: {
     ENABLED: true, // Whether or not the bot should update its status
-    STATUS: "idle", // The bot's status [online, idle, dnd, invisible]
+    STATUS: "online", // The bot's status [online, idle, dnd, invisible]
     TYPE: "WATCHING", // Status type for the bot [PLAYING | LISTENING | WATCHING | COMPETING]
-    MESSAGE: "TO B A C GAMING", // Your bot status message
+    MESSAGE: "to B A C GAMING", // Your bot status message
   },
 
   STATS: {
-    ENABLED: true,
+    ENABLED: false,
     XP_COOLDOWN: 5, // Cooldown in seconds between messages
     DEFAULT_LVL_UP_MSG: "{member:tag}, You just advanced to **Level {level}**",
   },
