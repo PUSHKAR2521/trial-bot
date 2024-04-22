@@ -59,10 +59,10 @@ module.exports = {
     // Refer to https://github.com/freyacodes/Lavalink to host your own lavalink server
     LAVALINK_NODES: [
       {
-        host: "lavalink.devamop.in",
+        host: "lavalink.api.timelessnesses.me",
         port: 80,
-        password: "DevamOP",
-        id: "DevamOP Connected",
+        password: "youshallnotpass",
+        id: "Timelessnesses Connected",
         secure: false,
       },
     ],
