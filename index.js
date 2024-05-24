@@ -62,7 +62,7 @@ process.on("unhandledRejection", (err) => client.logger.error(`Unhandled excepti
 
     try {
 
-      const { launch } = require("@root/discord-js-bot/dashboard/app");
+      const { launch } = require("@root/dashboard/app");
 
 
 
