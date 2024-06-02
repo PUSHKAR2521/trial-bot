@@ -3,7 +3,7 @@ module.exports = {
   SUPPORT_SERVER: "https://discord.gg/g2xfZFDJZq", // Your bot support server
   PREFIX_COMMANDS: {
     ENABLED: true, // Enable/Disable prefix commands
-    DEFAULT_PREFIX: "--", // Default prefix for the bot
+    DEFAULT_PREFIX: "bac ", // Default prefix for the bot
   },
   INTERACTIONS: {
     SLASH: true, // Should the interactions be enabled
@@ -59,9 +59,9 @@ module.exports = {
     // Refer to https://github.com/freyacodes/Lavalink to host your own lavalink server
     LAVALINK_NODES: [
       {
-        host: "lava-v3.ajieblogs.eu.org",
+        host: "lavalink.api.timelessnesses.me",
         port: 80,
-        password: "https://dsc.gg/ajidevserver",
+        password: "youshallnotpass",
         id: "Local Node",
         secure: false,
       },
