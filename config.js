@@ -59,9 +59,9 @@ module.exports = {
     // Refer to https://github.com/freyacodes/Lavalink to host your own lavalink server
     LAVALINK_NODES: [
       {
-        host: "lavalink.api.timelessnesses.me",
-        port: 80,
-        password: "youshallnotpass",
+        host: "54.36.225.156",
+        port: 2333,
+        password: "s4DarqP$&y",
         id: "Local Node",
         secure: false,
       },
@@ -76,8 +76,8 @@ module.exports = {
   },
 
   IMAGE: {
-    ENABLED: false,
-    BASE_API: "https://strangeapi.fun/api",
+    ENABLED: true,
+    BASE_API: "NjY2MjkxYmY3ZGFhMjgzY2E1YjhlYjkz.Hew4qp4m4CQOd7TZTemlNiS8rqafcxdmygaM35DTQ",
   },
 
   INVITE: {
