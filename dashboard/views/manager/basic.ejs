@@ -1,53 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<%- include("../includes/head") %>
 
-	<%- include('../includes/head') %>
-	
-	<body class="hold-transition skin-blue sidebar-mini">
+    <head>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
-		<div class="wrapper">
+            @media only screen and (max-width: 527px) {
+                section {
+                    margin: 0 50px;
+                    font-size: 1rem;
+                }
 
-			<!-- The header is the topbar -->
-			<%- include('../includes/header') %>
+                .parent>div>span {
+                    width: 80vw;
+                }
+            }
 
-			<!-- The sidebar includes the menu -->
-			<%- include('../includes/sidebar') %>
+            .lContainer {
+                display: flex;
+                /* justify-content: space-between; */
+                gap: 50px;
+                flex-direction: column;
+                /* background: pink; */
+                height: 80%;
+            }
 
-			<!-- Content Wrapper. Contains page content -->
-			<div class="content-wrapper">
+            .setting {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                font-size: 1.2rem;
+            }
 
-				<!-- Content Header (Page header) -->
-				<section class="content-header">
-					<h3> Basic </h3>
-					<ol class="breadcrumb">
-                        <li><a href="/"><i class="fa fa-home"></i>Selector</a></li>
-                        <li><a href="<%=`/manage/${guild.id}/`%>"><%=guild.name%></a></li>
-                        <li class="active">Basic</li>
-					</ol>
-				</section>
+            .setting>a>img {
+                width: 25px;
+            }
 
-				<section class="content">
-                    <div class="row">
-                        <div class="col-md-6">
+            .title {
+                text-align: center;
+                /* background: red; */
+                margin: 20px 0;
+                font-size: 1.5rem;
+            }
+
+            .supportlink {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 0 0 20px 0;
+            }
+
+            .supportlink>a>i {
+                /* background: red; */
+                font-size: 2rem;
+            }
+
+            .row {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                width: 100vw;
+            }
+
+            @media only screen and (max-width: 998px) {
+                .row {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 25px;
+                }
+            }
+        </style>
+    </head>
+
+    <body style="background-image: url(/dist/img/mainbg.svg); background-repeat: repeat; background-size: cover; width: 100vw; height: auto; background-position: center; color: white; font-family:
+    Poppins, sans-serif; 
+    font-weight: 500;">
+
+        <%- include('../includes/header') %>
+            <!-- Content Wrapper. Contains page content -->
+            <div class="">
+
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h3> Basic </h3>
+                </section>
+
+                <section class="content">
+                    <div class="row" style="display: flex; align-items: center;">
+                        <div class="col-md-6" style="display: flex; gap: 25px; flex-direction: column;">
                             <!-- BASIC CONFIGURATION -->
-                            <div class="box box-warning">
+                            <div class=""
+                                style="background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(100px); padding: 30px ; border-radius: 30px; box-shadow: 0 0 30px black; ">
                                 <div class="box-header with-border">
-                                    <h3 class="box-title">General</h3>
+                                    <h3 class="" style="color: gray;">General</h3>
                                 </div>
                                 <form role="form" action="/manage/<%= guild.id %>/basic/" method="POST">
                                     <div class="box-body">
                                         <div class="form-group">
                                             <label>Prefix</label>
-                                            <input type="text" name="prefix" class="form-control" placeholder="<%= guild.prefix %>">
+                                            <input type="text" name="prefix" class="form-control"
+                                                style="background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(100px); color: white; outline: none; border-bottom: 2px solid white; border-top: none; border-left: none; border-right: none;"
+                                                placeholder="Prefix of your Server = <%= guild.prefix %>">
                                         </div>
                                         <div class="form-group">
                                             <div class="checkbox">
                                                 <label>
                                                     <% if(guild.flag_translation?.enabled) { %>
-                                                        <input type="checkbox" name="flag_translation" checked>Flag Translation
-                                                    <% } else { %>
-                                                        <input type="checkbox" name="flag_translation">Flag Translation
-                                                    <% } %>
+                                                        <input type="checkbox" name="flag_translation" checked>Flag
+                                                        Translation
+                                                        <% } else { %>
+                                                            <input type="checkbox" name="flag_translation">Flag
+                                                            Translation
+                                                            <% } %>
                                                 </label>
                                             </div>
                                         </div>
@@ -55,23 +124,28 @@
                                             <div class="checkbox">
                                                 <label>
                                                     <% if(guild.invite.tracking) { %>
-                                                        <input type="checkbox" name="invite_tracking" checked>Invite Tracking
-                                                    <% } else { %>
-                                                        <input type="checkbox" name="invite_tracking">Invite Tracking
-                                                    <% } %>
+                                                        <input type="checkbox" name="invite_tracking" checked>Invite
+                                                        Tracking
+                                                        <% } else { %>
+                                                            <input type="checkbox" name="invite_tracking">Invite
+                                                            Tracking
+                                                            <% } %>
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="box-footer">
-                                        <button type="submit" name="basicUpdate" class="btn btn-primary">Update</button>
+                                    <div class="box-footer"
+                                        style="background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(100px);">
+                                        <button type="submit" name="basicUpdate" class="btn"
+                                            style="background: linear-gradient(90deg, rgba(0, 255, 71, 1) 0%, rgba(0, 97, 27, 1) 100%); border: none; outline: none; width: 125px; height: 50px; border-radius: 12px; font-size: 1.8rem; margin-top: 15px;">Update</button>
                                     </div>
                                 </form>
                             </div>
                             <!-- END: BASIC CONFIGURATION -->
 
                             <!-- STATISTICS CONFIGURATION -->
-                            <div class="box box-warning">
+                            <div class=""
+                                style="background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(100px); padding: 30px ; border-radius: 30px; box-shadow: 0 0 30px black; ">
                                 <div class="box-header with-border">
                                     <h3 class="box-title">Statistics</h3>
                                 </div>
@@ -81,44 +155,59 @@
                                             <div class="checkbox">
                                                 <label>
                                                     <% if(guild.stats.enabled) { %>
-                                                        <input type="checkbox" name="ranking" checked>Tracking
-                                                    <% } else { %>
-                                                        <input type="checkbox" name="ranking">Tracking
-                                                    <% } %>
+                                                        <input type="checkbox" name="ranking"
+                                                            style="background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(100px);"
+                                                            checked>Tracking
+                                                        <% } else { %>
+                                                            <input type="checkbox" name="ranking">Tracking
+                                                            <% } %>
                                                 </label>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Levelup Message</label>
-                                            <input type="text" name="levelup_message" class="form-control" placeholder="<%= guild.stats.xp.message %>">
+                                            <input type="text" name="levelup_message" class="form-control"
+                                                placeholder="<%= guild.stats.xp.message %>"
+                                                style="background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(100px); color: white; outline: none; border-bottom: 2px solid white; border-top: none; border-left: none; border-right: none;">
                                         </div>
                                         <div class="form-group">
                                             <label>Levelup Channel</label>
                                             <select class="form-control" name="levelup_channel">
-                                                <% if(guild.stats.xp.channel && bot.channels.cache.has(guild.stats.xp.channel)){ %>
-                                                    <option selected="selected">#<%= bot.channels.cache.get(guild.stats.xp.channel).name %></option>
-                                                    <% guild.channels.cache.filter((ch) => ch.type === 0 && ch.id !== guild.stats.xp.channel).forEach((ch) => { %>
-                                                        <option>#<%= ch.name %></option>
-                                                    <% }); %>
-                                                        <option>No channel</option>
-                                                <% } else { %>
-                                                    <option disabled selected value> -- select an option -- </option>
-                                                    <% guild.channels.cache.filter((ch) => ch.type === 0).forEach((ch) => { %>
-                                                        <option>#<%= ch.name %></option>
-                                                    <% }); %>
-                                                <% } %>
+                                                <% if(guild.stats.xp.channel &&
+                                                    bot.channels.cache.has(guild.stats.xp.channel)){ %>
+                                                    <option selected="selected">#<%=
+                                                            bot.channels.cache.get(guild.stats.xp.channel).name %>
+                                                    </option>
+                                                    <% guild.channels.cache.filter((ch)=> ch.type === 0 && ch.id
+                                                        !== guild.stats.xp.channel).forEach((ch) => { %>
+                                                        <option>#<%= ch.name %>
+                                                        </option>
+                                                        <% }); %>
+                                                            <option>No channel</option>
+                                                            <% } else { %>
+                                                                <option disabled selected value> -- select an
+                                                                    option -- </option>
+                                                                <% guild.channels.cache.filter((ch)=> ch.type
+                                                                    === 0).forEach((ch) => { %>
+                                                                    <option>#<%= ch.name %>
+                                                                    </option>
+                                                                    <% }); %>
+                                                                        <% } %>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="box-footer">
-                                        <button type="submit" name="statsUpdate" class="btn btn-primary">Update</button>
+                                    <div class="box-footer"
+                                        style="background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(100px);">
+                                        <button type="submit" name="basicUpdate" class="btn"
+                                            style="background: linear-gradient(90deg, rgba(0, 255, 71, 1) 0%, rgba(0, 97, 27, 1) 100%); border: none; outline: none; width: 125px; height: 50px; border-radius: 12px; font-size: 1.8rem; margin-top: 15px;">Update</button>
                                     </div>
                                 </form>
                             </div>
                             <!-- END: BASIC CONFIGURATION -->
 
                             <!-- TICKET CONFIGURATION -->
-                            <div class="box box-warning">
+                            <div class=""
+                                style="background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(100px); padding: 30px ; border-radius: 30px; box-shadow: 0 0 30px black; ">
                                 <div class="box-header with-border">
                                     <h3 class="box-title">Ticket</h3>
                                 </div>
@@ -126,28 +215,40 @@
                                     <div class="box-body">
                                         <div class="form-group">
                                             <label>Ticket Limit</label>
-                                            <input type="number" name="limit" class="form-control" placeholder="<%= guild.ticket.limit %>">
+                                            <input type="number" name="limit" class="form-control"
+                                                placeholder="<%= guild.ticket.limit %>"
+                                                style="background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(100px); color: white; outline: none; border-bottom: 2px solid white; border-top: none; border-left: none; border-right: none;">
                                         </div>
                                         <div class="form-group">
                                             <label>Ticket Logs</label>
                                             <select class="form-control" name="channel">
-                                                <% if(guild.ticket.log_channel && bot.channels.cache.has(guild.ticket.log_channel)){ %>
-                                                    <option selected="selected">#<%= bot.channels.cache.get(guild.ticket.log_channel).name %></option>
-                                                    <% guild.channels.cache.filter((ch) => ch.type === 0 && ch.id !== guild.ticket.log_channel).forEach((ch) => { %>
-                                                        <option>#<%= ch.name %></option>
-                                                    <% }); %>
-                                                        <option>No channel</option>
-                                                <% } else { %>
-                                                    <option disabled selected value> -- select an option -- </option>
-                                                    <% guild.channels.cache.filter((ch) => ch.type === 0).forEach((ch) => { %>
-                                                        <option>#<%= ch.name %></option>
-                                                    <% }); %>
-                                                <% } %>
+                                                <% if(guild.ticket.log_channel &&
+                                                    bot.channels.cache.has(guild.ticket.log_channel)){ %>
+                                                    <option selected="selected">#<%=
+                                                            bot.channels.cache.get(guild.ticket.log_channel).name %>
+                                                    </option>
+                                                    <% guild.channels.cache.filter((ch)=> ch.type === 0 && ch.id
+                                                        !== guild.ticket.log_channel).forEach((ch) => { %>
+                                                        <option>#<%= ch.name %>
+                                                        </option>
+                                                        <% }); %>
+                                                            <option>No channel</option>
+                                                            <% } else { %>
+                                                                <option disabled selected value> -- select an
+                                                                    option -- </option>
+                                                                <% guild.channels.cache.filter((ch)=> ch.type
+                                                                    === 0).forEach((ch) => { %>
+                                                                    <option>#<%= ch.name %>
+                                                                    </option>
+                                                                    <% }); %>
+                                                                        <% } %>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="box-footer">
-                                        <button type="submit" name="ticketUpdate" class="btn btn-primary">Update</button>
+                                    <div class="box-footer"
+                                        style="background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(100px);">
+                                        <button type="submit" name="basicUpdate" class="btn"
+                                            style="background: linear-gradient(90deg, rgba(0, 255, 71, 1) 0%, rgba(0, 97, 27, 1) 100%); border: none; outline: none; width: 125px; height: 50px; border-radius: 12px; font-size: 1.8rem; margin-top: 15px;">Update</button>
                                     </div>
                                 </form>
                             </div>
@@ -155,10 +256,11 @@
 
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="display: flex; gap: 25px; flex-direction: column;">
 
                             <!-- MODERATION CONFIGURATION -->
-                            <div class="box box-warning">
+                            <div class=""
+                                style="background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(100px); padding: 30px ; border-radius: 30px; box-shadow: 0 0 30px black; ">
                                 <div class="box-header with-border">
                                     <h3 class="box-title">Moderation</h3>
                                 </div>
@@ -166,50 +268,65 @@
                                     <div class="box-body">
                                         <div class="form-group">
                                             <label>Max Warnings</label>
-                                            <input type="number" name="max_warnings" class="form-control" placeholder="<%= guild.max_warn.limit %>">
+                                            <input type="number" name="max_warnings" class="form-control"
+                                                placeholder="<%= guild.max_warn.limit %>"
+                                                style="background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(100px); color: white; outline: none; border-bottom: 2px solid white; border-top: none; border-left: none; border-right: none;">
                                         </div>
                                         <div class="form-group">
                                             <label>Max Warnings Action</label>
                                             <select class="form-control" name="max_warn_action">
-                                                <option selected="selected"><%= guild.max_warn.action %></option>
-                                                <% if(guild.max_warn.action !== "TIMEOUT") { %>
+                                                <option selected="selected">
+                                                    <%= guild.max_warn.action %>
+                                                </option>
+                                                <% if(guild.max_warn.action !=="TIMEOUT" ) { %>
                                                     <option>TIMEOUT</option>
-                                                <% } %>
-                                                <% if(guild.max_warn.action !== "KICK") { %>
-                                                    <option>KICK</option>
-                                                <% } %>
-                                                <% if(guild.max_warn.action !== "BAN") { %>
-                                                    <option>BAN</option>
-                                                <% } %>
+                                                    <% } %>
+                                                        <% if(guild.max_warn.action !=="KICK" ) { %>
+                                                            <option>KICK</option>
+                                                            <% } %>
+                                                                <% if(guild.max_warn.action !=="BAN" ) { %>
+                                                                    <option>BAN</option>
+                                                                    <% } %>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Moderation Logs</label>
                                             <select class="form-control" name="modlog_channel">
-                                                <% if(guild.modlog_channel && bot.channels.cache.has(guild.modlog_channel)){ %>
-                                                    <option selected="selected">#<%= bot.channels.cache.get(guild.modlog_channel).name %></option>
-                                                    <% guild.channels.cache.filter((ch) => ch.type === 0 && ch.id !== guild.modlog_channel).forEach((ch) => { %>
-                                                        <option>#<%= ch.name %></option>
-                                                    <% }); %>
-                                                        <option>No channel</option>
-                                                <% } else { %>
-                                                    <option disabled selected value> -- select an option -- </option>
-                                                    <% guild.channels.cache.filter((ch) => ch.type === 0).forEach((ch) => { %>
-                                                        <option>#<%= ch.name %></option>
-                                                    <% }); %>
-                                                <% } %>
+                                                <% if(guild.modlog_channel &&
+                                                    bot.channels.cache.has(guild.modlog_channel)){ %>
+                                                    <option selected="selected">#<%=
+                                                            bot.channels.cache.get(guild.modlog_channel).name %>
+                                                    </option>
+                                                    <% guild.channels.cache.filter((ch)=> ch.type === 0 && ch.id
+                                                        !== guild.modlog_channel).forEach((ch) => { %>
+                                                        <option>#<%= ch.name %>
+                                                        </option>
+                                                        <% }); %>
+                                                            <option>No channel</option>
+                                                            <% } else { %>
+                                                                <option disabled selected value> -- select an
+                                                                    option -- </option>
+                                                                <% guild.channels.cache.filter((ch)=> ch.type
+                                                                    === 0).forEach((ch) => { %>
+                                                                    <option>#<%= ch.name %>
+                                                                    </option>
+                                                                    <% }); %>
+                                                                        <% } %>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="box-footer">
-                                        <button type="submit" name="modUpdate" class="btn btn-primary">Update</button>
+                                    <div class="box-footer"
+                                        style="background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(100px);">
+                                        <button type="submit" name="basicUpdate" class="btn"
+                                            style="background: linear-gradient(90deg, rgba(0, 255, 71, 1) 0%, rgba(0, 97, 27, 1) 100%); border: none; outline: none; width: 125px; height: 50px; border-radius: 12px; font-size: 1.8rem; margin-top: 15px;">Update</button>
                                     </div>
                                 </form>
                             </div>
                             <!-- END: MODERATION CONFIGURATION -->
 
                             <!-- AUTOMOD CONFIGURATION -->
-                            <div class="box box-warning">
+                            <div class=""
+                                style="background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(100px); padding: 30px ; border-radius: 30px; box-shadow: 0 0 30px black; ">
                                 <div class="box-header with-border">
                                     <h3 class="box-title">Auto Moderation</h3>
                                 </div>
@@ -217,113 +334,137 @@
                                     <div class="box-body">
                                         <div class="form-group">
                                             <label>Max Strikes</label>
-                                            <input type="number" name="max_strikes" class="form-control" placeholder="<%= guild.automod.strikes %>">
+                                            <input type="number" name="max_strikes" class="form-control"
+                                                placeholder="<%= guild.automod.strikes %>"
+                                                style="background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(100px); color: white; outline: none; border-bottom: 2px solid white; border-top: none; border-left: none; border-right: none;">
                                         </div>
                                         <div class="form-group">
                                             <label>Max Strikes Action</label>
                                             <select class="form-control" name="automod_action">
-                                                <option selected="selected"><%= guild.automod.action %></option>
-                                                <% if(guild.automod.action !== "TIMEOUT") { %>
+                                                <option selected="selected">
+                                                    <%= guild.automod.action %>
+                                                </option>
+                                                <% if(guild.automod.action !=="TIMEOUT" ) { %>
                                                     <option>TIMEOUT</option>
-                                                <% } %>
-                                                <% if(guild.automod.action !== "KICK") { %>
-                                                    <option>KICK</option>
-                                                <% } %>
-                                                <% if(guild.automod.action !== "BAN") { %>
-                                                    <option>BAN</option>
-                                                <% } %>
+                                                    <% } %>
+                                                        <% if(guild.automod.action !=="KICK" ) { %>
+                                                            <option>KICK</option>
+                                                            <% } %>
+                                                                <% if(guild.automod.action !=="BAN" ) { %>
+                                                                    <option>BAN</option>
+                                                                    <% } %>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Max Lines</label>
-                                            <input type="number" name="max_lines" class="form-control" placeholder="<%= guild.automod.max_lines %>">
+                                            <input type="number" name="max_lines" class="form-control"
+                                                placeholder="<%= guild.automod.max_lines %>"
+                                                style="background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(100px); color: white; outline: none; border-bottom: 2px solid white; border-top: none; border-left: none; border-right: none;">
                                         </div>
                                         <div class="form-group">
                                             <div class="checkbox">
                                                 <label>
                                                     <% if(guild.automod.anti_attachments) { %>
-                                                        <input type="checkbox" name="anti_attachments" checked>Anti Attachments
-                                                    <% } else { %>
-                                                        <input type="checkbox" name="anti_attachments">Anti Attachments
-                                                    <% } %>
+                                                        <input type="checkbox" name="anti_attachments" checked>Anti
+                                                        Attachments
+                                                        <% } else { %>
+                                                            <input type="checkbox" name="anti_attachments">Anti
+                                                            Attachments
+                                                            <% } %>
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
                                                     <% if(guild.automod.anti_invites) { %>
-                                                        <input type="checkbox" name="anti_invites" checked>Anti Invites
-                                                    <% } else { %>
-                                                        <input type="checkbox" name="anti_invites">Anti Invites
-                                                    <% } %>
+                                                        <input type="checkbox" name="anti_invites" checked>Anti
+                                                        Invites
+                                                        <% } else { %>
+                                                            <input type="checkbox" name="anti_invites">Anti
+                                                            Invites
+                                                            <% } %>
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
                                                     <% if(guild.automod.anti_links) { %>
-                                                        <input type="checkbox" name="anti_links" checked>Anti Links
-                                                    <% } else { %>
-                                                        <input type="checkbox" name="anti_links">Anti Links
-                                                    <% } %>
+                                                        <input type="checkbox" name="anti_links" checked>Anti
+                                                        Links
+                                                        <% } else { %>
+                                                            <input type="checkbox" name="anti_links">Anti Links
+                                                            <% } %>
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
                                                     <% if(guild.automod.anti_spam) { %>
-                                                        <input type="checkbox" name="anti_spam" checked>Anti Spam
-                                                    <% } else { %>
-                                                        <input type="checkbox" name="anti_spam">Anti Spam
-                                                    <% } %>
+                                                        <input type="checkbox" name="anti_spam" checked>Anti
+                                                        Spam
+                                                        <% } else { %>
+                                                            <input type="checkbox" name="anti_spam">Anti Spam
+                                                            <% } %>
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
                                                     <% if(guild.automod.anti_ghostping) { %>
-                                                        <input type="checkbox" name="anti_ghostping" checked>Anti Ghostping
-                                                    <% } else { %>
-                                                        <input type="checkbox" name="anti_ghostping">Anti Ghostping
-                                                    <% } %>
+                                                        <input type="checkbox" name="anti_ghostping" checked>Anti
+                                                        Ghostping
+                                                        <% } else { %>
+                                                            <input type="checkbox" name="anti_ghostping">Anti
+                                                            Ghostping
+                                                            <% } %>
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
                                                     <% if(guild.automod.anti_massmention) { %>
-                                                        <input type="checkbox" name="anti_massmention" checked>Anti Massmention
-                                                    <% } else { %>
-                                                        <input type="checkbox" name="anti_massmention">Anti Massmention
-                                                    <% } %>
+                                                        <input type="checkbox" name="anti_massmention" checked>Anti
+                                                        Massmention
+                                                        <% } else { %>
+                                                            <input type="checkbox" name="anti_massmention">Anti
+                                                            Massmention
+                                                            <% } %>
                                                 </label>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Whitelisted Channels</label>
-                                            <select class="form-control" name="channels" multiple>
-                                                <% guild.channels.cache.filter((ch) => ch.type === 0).forEach((ch) => { %>
+                                            <select class="form-control" name="channels"
+                                                style="background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(100px); color: white; outline: none; border-bottom: 2px solid white; border-top: none; border-left: none; border-right: none;"
+                                                multiple>
+                                                <% guild.channels.cache.filter((ch)=> ch.type ===
+                                                    0).forEach((ch) => { %>
                                                     <% if(guild.automod.wh_channels.includes(ch.id) ){ %>
-                                                        <option selected="selected">#<%= ch.name %></option>
-                                                    <% } else { %>
-                                                        <option>#<%= ch.name %></option>
-                                                    <% } %>
-                                                <% }); %>
+                                                        <option selected="selected">#<%= ch.name %>
+                                                        </option>
+                                                        <% } else { %>
+                                                            <option>#<%= ch.name %>
+                                                            </option>
+                                                            <% } %>
+                                                                <% }); %>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="box-footer">
-                                        <button type="submit" name="automodUpdate" class="btn btn-primary">Update</button>
+                                    <div class="box-footer"
+                                        style="background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(100px);">
+                                        <button type="submit" name="basicUpdate" class="btn"
+                                            style="background: linear-gradient(90deg, rgba(0, 255, 71, 1) 0%, rgba(0, 97, 27, 1) 100%); border: none; outline: none; width: 125px; height: 50px; border-radius: 12px; font-size: 1.8rem; margin-top: 15px;">Update</button>
                                     </div>
                                 </form>
                             </div>
                             <!-- END: AUTOMOD CONFIGURATION -->
                         </div>
 
-                    <div>
-				</section>
-				
-				<!-- Footer includes credits and version -->
-			</div>
+                        <div>
+                </section>
+
+                <!-- Footer includes credits and version -->
+            </div>
             <!-- /.content-wrapper -->
-            
+
             <%- include('../includes/footer') %>
-		</div>
-		<!-- ./wrapper -->
-	</body>
+                </div>
+                <!-- ./wrapper -->
+    </body>
+
 </html>

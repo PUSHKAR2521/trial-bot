@@ -32,7 +32,7 @@
     </style>
 </head>
 
-<body style="background-image: url(/dist/img/bg.svg); background-repeat: no-repeat; background-size: cover; width: 100vw; height: 100vh;      background-position: center; color: white; font-family:
+<body style="background-image: url(/dist/img/mainbg.svg); background-repeat: no-repeat; background-size: cover; width: 100vw; height: 100vh;      background-position: center; color: white; font-family:
     Poppins, sans-serif; 
     font-weight: 500; overflow: hidden;">
     <!-- <header class="logo" style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0 20px;
@@ -48,13 +48,12 @@
     <%- include('includes/sheader') %>
         <section
             style="width: 500px; height: 80vh; padding: 0 20px; display: flex; align-items: center; justify-content: center; flex-direction: column; align-items: center; justify-content: center;
-        background: rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0);
     border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(9.4px);
-    -webkit-backdrop-filter: blur(9.4px);
-    border: 1px solid rgba(255, 255, 255, 0.33);
-    margin: auto; padding: 10px 0; position: relative; top: 10%; @media only screen and (max-width: 567px) {width: 300px; }">
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 1);
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
+    margin: auto; padding: 10px 0; position: relative; top: 10%; @media only screen and (max-width: 567px) {width: 500px; } overflow: hidden;">
             <% if(user.displayedGuilds){ user.displayedGuilds.forEach(function(guild) { %>
                 <div class="parent"
                     style="width: 500px; height: 80%; display: flex; align-items: center; justify-content: space-between; padding: 0 10px;  ">

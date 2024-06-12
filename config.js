@@ -62,7 +62,7 @@ module.exports = {
         host: "54.36.225.156",
         port: 2333,
         password: "s4DarqP$&y",
-        id: "Local Node",
+        id: "B A C Music",
         secure: false,
       },
     ],
