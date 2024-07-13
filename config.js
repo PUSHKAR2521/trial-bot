@@ -51,10 +51,10 @@ module.exports = {
   },
 
   MUSIC: {
-    ENABLED: false,
+    ENABLED: true,
     IDLE_TIME: 1440, // Time in seconds before the bot disconnects from an idle voice channel
     MAX_SEARCH_RESULTS: 5,
-    DEFAULT_SOURCE: "YTM", // YT = Youtube, YTM = Youtube Music, SC = SoundCloud
+    DEFAULT_SOURCE: "YT", // YT = Youtube, YTM = Youtube Music, SC = SoundCloud
     // Add any number of lavalink nodes here
     // Refer to https://github.com/freyacodes/Lavalink to host your own lavalink server
     LAVALINK_NODES: [
@@ -64,10 +64,10 @@ module.exports = {
         // password: "s4DarqP$&y",
         // id: "B A C Music",
         // secure: false,
-        host: "lavalink.neonnetworks.cc",
-        port: 1202,
-        password: "youshallnotpass",
-        id: "NeonNetworks Global",
+        host: "hk.aarubot.xyz",
+        port: 57095,
+        password: "Aaru-the-cutiepie",
+        id: "Aaru",
         secure: false,
       },
     ],
