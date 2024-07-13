@@ -52,7 +52,7 @@ module.exports = {
   },
 
   MUSIC: {
-    ENABLED: true,
+    ENABLED: false,
     IDLE_TIME: 1440, // Time in seconds before the bot disconnects from an idle voice channel
     MAX_SEARCH_RESULTS: 5,
     DEFAULT_SOURCE: "YT", // YT = Youtube, YTM = Youtube Music, SC = SoundCloud
