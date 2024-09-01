@@ -3,7 +3,7 @@ module.exports = {
   SUPPORT_SERVER: "https://discord.gg/g2xfZFDJZq", // Your bot support server
   PREFIX_COMMANDS: {
     ENABLED: true, // Enable/Disable prefix commands
-    DEFAULT_PREFIX: "bac ", // Default prefix for the bot
+    DEFAULT_PREFIX: "=", // Default prefix for the bot
   },
   INTERACTIONS: {
     SLASH: true, // Should the interactions be enabled
@@ -38,7 +38,7 @@ module.exports = {
 
   DASHBOARD: {
     enabled: true, // enable or disable dashboard
-    baseURL: "https://my-bot-33hv.onrender.com", // base url
+    baseURL: "https://8888-idx-my-bot-1721215350192.cluster-mwrgkbggpvbq6tvtviraw2knqg.cloudworkstations.dev", // base url
     failureURL: "https://my-bot-33hv.onrender.com", // failure redirect url
     port: "8888", // port to run the bot on
   },
@@ -52,23 +52,25 @@ module.exports = {
   },
 
   MUSIC: {
-    ENABLED: false,
+    ENABLED: true,
     IDLE_TIME: 1440, // Time in seconds before the bot disconnects from an idle voice channel
     MAX_SEARCH_RESULTS: 5,
     DEFAULT_SOURCE: "YT", // YT = Youtube, YTM = Youtube Music, SC = SoundCloud
     // Add any number of lavalink nodes here
     // Refer to https://github.com/freyacodes/Lavalink to host your own lavalink server
     LAVALINK_NODES: [
+      // {
+      //   host: "lavalink.api.timelessnesses.me",
+      //   port: 80,
+      //   password: "youshallnotpass",
+      //   id: "B A C Unauth Lavalink Hosting Unsecured...",
+      //   secure: false,
+      // },
       {
-        // host: "54.36.225.156",
-        // port: 2333,
-        // password: "s4DarqP$&y",
-        // id: "B A C Music",
-        // secure: false,
-        host: "hk.aarubot.xyz",
-        port: 57095,
-        password: "Aaru-the-cutiepie",
-        id: "Aaru",
+        host: "0.0.0.0",
+        port: 5000,
+        password: "youshallnotpass",
+        id: "B A C Unauth Lavalink Hosting Unsecured...",
         secure: false,
       },
     ],

@@ -10,7 +10,7 @@ module.exports = (member) => {
 
   let rolesString = member.roles.cache.map((r) => r.name).join(", ");
   if (rolesString.length > 1024) rolesString = rolesString.substring(0, 1020) + "...";
-
+ 
   const embed = new EmbedBuilder()
     .setAuthor({
       name: `User information for ${member.displayName}`,

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Dashboard</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Music Dashboard</h1>
+    </header>
+    <main>
+        <h2>Currently Playing</h2>
+        <% if (currentSong) { %>
+            <div>
+                <h3><%= currentSong.title %></h3>
+                <p><%= currentSong.requester %></p>
+                <p>Duration: <%= currentSong.duration %></p>
+                <p><a href="<%= currentSong.uri %>">Listen</a></p>
+                <% if (currentSong.thumbnail) { %>
+                    <img src="<%= currentSong.thumbnail %>" alt="<%= currentSong.title %> Thumbnail">
+                <% } %>
+            </div>
+        <% } else { %>
+            <p>No song is currently playing.</p>
+        <% } %>
+    </main>
+</body>
+</html>

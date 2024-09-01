@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-6580783478903307">
+    <title>B A C - Privacy</title>
+    <link rel="shortcut icon" href="dist/img/logo.png" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="dist/css/home.css" type="text/css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){ 
+            $("#menu-icon").click(function(){
+                $("#2-button").css({"z-index":"-1"})
+                $("#main-section").css({"blur":"500px"})
+                $("#img-logo").css({"opacity":"0.1"})
+            })
+        })
+        $(document).ready(function(){ 
+            $("#close-icon").click(function(){
+                $("#2-button").css({"z-index":"1"})
+                $("#img-logo").css({"opacity":"1"})
+            })
+        })
+
+    </script>
+</head>
+
+<body class="inset-0 -z-10 h-full w-full items-center [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)] text-white">
+    <header class="header">
+        <div class="logo">
+            B A C
+        </div>
+
+        <input type="checkbox" id="check">
+            <label for="check"  class="icons">
+                <i class='bx bx-menu' id="menu-icon"></i>
+                <i class='bx bx-x' id="close-icon"></i>
+            </label>
+
+        <nav>
+            <a href="/" class="transition duration-150 ease-out hover:ease-in hover:text-[#63E]">Home</a>
+            <a href="/about" class="transition duration-150 ease-out hover:ease-in hover:text-[#63E]">About</a>
+            <a href="/features" class="transition duration-150 ease-out hover:ease-in hover:text-[#63E]">Features</a>
+            <a href="/status" class="transition duration-150 ease-out hover:ease-in hover:text-[#63E]">Status</a>
+            <!-- <a href="/selector" class="transition duration-150 ease-out hover:ease-in hover:text-[#63E]">Dashboard</a> -->
+        </nav>
+    </header>
+
+    <section class="min-h-screen min-w-screen flex flex-col items-center p-10 max-[768px]:p-5" id="main-section">
+        <div class="container h-[auto] flex flex-col gap-8">
+            <div class="flex items-center justify-start gap-5">
+                <div class="nameContainer flex flex-col gap-3">
+                    <span class="text-5xl font-bold text-white">Privacy Policy</span>
+                    <span class="text-xl font-bold text-white">Effective: September 01, 2024</span>
+                    <span class="text-xl font-bold text-white">Last updated: September 01, 2024.</span>
+                    <span class="text-xl font-bold text-white">Terms of Service: <a class="text-[#63E] underline" href="/terms">/terms</a></span>
+                    
+                </div>
+            </div>
+            <div class="text-lg w-[65vw] p-5 m-auto border-2 border-[#63E] rounded-xl max-[768px]:w-[90vw]">
+                <div class="text-5xl text-center m-5 border-y-5 border-[#63E] w-[100%]">
+                    <span>Policies.</span>
+                </div>
+                <div class="heading text-xl flex flex-col gap-3">
+                    <div class="first">
+                        <span class="text-[24px] font-bold">1. Introduction</span>
+                        <p class="text-[16px]">Thanks for being interested in using B A C. Before doing so, you should carefully read, understand and accept B A C's Terms of Service, then this Privacy Policy.</p>
+                    </div>
+                    <div class="second">
+                        <span class="text-[24px] font-bold">2. Purpose</span>
+                        <p class="text-[16px]">Your privacy is important to me. I will always inform you about how your data is used within this service in this Privacy Policy.</p>
+                    </div>
+                    <div class="third">
+                        <span class="text-[24px] font-bold">3. Summary</span>
+                        <p class="text-[16px]">Your privacy is important to me. I do not collect any personalized data. I may use all information you provide while using B A C's services to improve B A C. This does not happen automatically though and your personal data you may provide won't be shared with third parties. <br> All of the metadata (not content) of the messages sent in your server will be used, logged and stored to provide the Auto Moderation feature.</p>
+                    </div>
+                    <div class="fourth">
+                        <span class="text-[24px] font-bold">4. Use of the website and dashboard</span>
+                        <p class="text-[16px]">When using B A C's website or dashboard, only the data you actively store by clicking "Save changes" after making changes to your configuration is stored together with your personal data as this is necessary to provide B A C's services. Your personal data is not being stored or tracked automatically.</p>
+                    </div>
+                    <div class="fifth flex flex-col gap-2">
+                        <div class="sub-1">
+                            <span class="text-[24px] font-bold">5. Use of the Discord bot within Discord</span>
+                            <p class="text-[16px]">When using B A C in your Discord server, you allow Pushkar to see and process all of your server's information B A C has access to.</p>
+                        </div>
+                        <div class="sub-2">
+                            <span class="text-[16px] font-bold pl-4">5.1. Auto Moderation and Message Logging</span>
+                            <p class="text-[14px] pl-8">B A C may log all messages posted on your server, including but not limited to your guild's ID, the author's ID, channel ID, message ID, attachment count, mention count, Auto Moderation Words Groups IDs, Auto Moderation Links Groups IDs and Auto Moderation Discord Invites Groups IDs. This does not include any type of message content. This is only done to provide the Auto Moderation feature. B A C does not store or log any message contents.</p>
+                        </div>
+                        <div class="sub-3">
+                            <span class="text-[16px] font-bold pl-4">5.2. Brand features</span>
+                            <p class="text-[14px] pl-8">You also agree that B A C may use your brand features (such as your [server's] name and logo) for any reasons, including but not limited to marketing purposes.</p>
+                        </div>
+                    </div>
+                    <div class="sixth">
+                        <span class="text-[24px] font-bold">6. Security</span>
+                        <p class="text-[16px]">All servers and databases used to provide B A C's services are not available to the public. Some information may be available through designated endpoints but only with correct authorization. <br> Although I am doing my best to protect your information, I advise that no method of electronic transmission or storage is 100% secure and no one can guarantee absolute data security. I am not liable for any data loss or data breach</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex gap-5 buttons hidden" id="2-button">
+                <a href="/invite">Invite Bot Now</a>
+                <a href="/features">Explore Features</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="flex flex-col min-h-[10vh] min-w-screen gap-5">
+        <div class="footer-logo flex justify-center items-center gap-5 pt-3">
+            <img src="dist/img/logo.gif" class="h-[6vh] invert rounded-xl alt="Logo">
+            <span>B A C</span>
+        </div>
+
+        <div class="footer-links flex justify-center items-center gap-10 pb-3 max-[768px]:flex-col max-[768px]:text-white">
+            <a href="/terms" class="transition duration-150 ease-out hover:ease-in hover:text-[#63E] max-[768px]:hover:text-white">Terms & Conditions</a>
+            <a href="/privacy" class="text-[#63E] transition duration-150 ease-out hover:ease-in hover:text-[#63E] max-[768px]:hover:text-white">Privacy Policy</a>
+            <a href="/legal" class="transition duration-150 ease-out hover:ease-in hover:text-[#63E] max-[768px]:hover:text-white">Legal Notice</a>
+        </div>
+
+        <div class="footer-links flex justify-center items-center gap-10 pb-3 max-[768px]:flex-col max-[768px]:text-white">
+            <span>Copyright © 2024 B A C Development. All rights reserved.</span>
+        </div>
+    </footer>
+</body>
+
+</html>

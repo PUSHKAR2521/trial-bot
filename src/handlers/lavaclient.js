@@ -1,70 +1,81 @@
-const { EmbedBuilder } = require("discord.js");
-const { Cluster } = require("lavaclient");
-const prettyMs = require("pretty-ms");
-const { load, SpotifyItemType } = require("@lavaclient/spotify");
-require("@lavaclient/queue/register");
+// lavaclient.js
 
-/**
- * @param {import("@structures/BotClient")} client
- */
+const { Cluster } = require('lavaclient');
+const { load, SpotifyItemType } = require('@lavaclient/spotify');
+const prettyMs = require('pretty-ms');
+const { EmbedBuilder } = require('discord.js');
+require('@lavaclient/queue/register');
+
 module.exports = (client) => {
   load({
     client: {
       id: process.env.SPOTIFY_CLIENT_ID,
       secret: process.env.SPOTIFY_CLIENT_SECRET,
     },
-    autoResolveYoutubeTracks: false,
+    autoResolveYoutubeTracks: true,
     loaders: [SpotifyItemType.Album, SpotifyItemType.Artist, SpotifyItemType.Playlist, SpotifyItemType.Track],
   });
 
   const lavaclient = new Cluster({
     nodes: client.config.MUSIC.LAVALINK_NODES,
-    sendGatewayPayload: (id, payload) => client.guilds.cache.get(id)?.shard?.send(payload),
+    sendGatewayPayload: (id, payload) => {
+      const guild = client.guilds.cache.get(id);
+      if (guild) {
+        guild.shard.send(payload);
+      } else {
+        console.error(`Guild with ID ${id} not found`);
+      }
+    },
   });
 
-  client.ws.on("VOICE_SERVER_UPDATE", (data) => lavaclient.handleVoiceUpdate(data));
-  client.ws.on("VOICE_STATE_UPDATE", (data) => lavaclient.handleVoiceUpdate(data));
+  client.ws.on('VOICE_SERVER_UPDATE', (data) => lavaclient.handleVoiceUpdate(data));
+  client.ws.on('VOICE_STATE_UPDATE', (data) => lavaclient.handleVoiceUpdate(data));
 
-  lavaclient.on("nodeConnect", (node, event) => {
+  lavaclient.on('nodeConnect', (node) => {
     client.logger.log(`Node "${node.id}" connected`);
   });
 
-  lavaclient.on("nodeDisconnect", (node, event) => {
+  lavaclient.on('nodeDisconnect', (node) => {
     client.logger.log(`Node "${node.id}" disconnected`);
   });
 
-  lavaclient.on("nodeError", (node, error) => {
-    client.logger.error(`Node "${node.id}" encountered an error: ${error.message}.`, error);
+  lavaclient.on('nodeError', (node, error) => {
+    client.logger.error(`Node "${node.id}" encountered an error: ${error.message}`, error);
   });
 
-  lavaclient.on("nodeDebug", (node, message) => {
+  lavaclient.on('nodeDebug', (node, message) => {
     client.logger.debug(`Node "${node.id}" debug: ${message}`);
   });
 
-  lavaclient.on("nodeTrackStart", (_node, queue, song) => {
+  lavaclient.on('trackStart', (queue, track) => {
+    let player = lavaclient.players.get(queue.guildId);
+    if (!player) {
+      player = lavaclient.createPlayer(queue.guildId);
+      console.log('Player Created Successfully.')
+    }
+
     const fields = [];
-
     const embed = new EmbedBuilder()
-      .setAuthor({ name: "Now Playing" })
+      .setAuthor({ name: 'Now Playing' })
       .setColor(client.config.EMBED_COLORS.BOT_EMBED)
-      .setDescription(`[${song.title}](${song.uri})`)
-      .setFooter({ text: `Requested By: ${song.requester}` });
+      .setDescription(`[${track.title}](${track.uri})`)
+      .setFooter({ text: `Requested By: ${track.requester}` });
 
-    if (song.sourceName === "youtube") {
-      const identifier = song.identifier;
+    if (track.sourceName === 'youtube') {
+      const identifier = track.identifier;
       const thumbnail = `https://img.youtube.com/vi/${identifier}/hqdefault.jpg`;
       embed.setThumbnail(thumbnail);
     }
 
     fields.push({
-      name: "Song Duration",
-      value: "`" + prettyMs(song.length, { colonNotation: true }) + "`",
+      name: 'Song Duration',
+      value: '`' + prettyMs(track.length, { colonNotation: true }) + '`',
       inline: true,
     });
 
     if (queue.tracks.length > 0) {
       fields.push({
-        name: "Position in Queue",
+        name: 'Position in Queue',
         value: (queue.tracks.length + 1).toString(),
         inline: true,
       });
@@ -74,10 +85,24 @@ module.exports = (client) => {
     queue.data.channel.safeSend({ embeds: [embed] });
   });
 
-  lavaclient.on("nodeQueueFinish", async (_node, queue) => {
-    queue.data.channel.safeSend("Queue has ended.");
-    await client.musicManager.destroyPlayer(queue.player.guildId).then(queue.player.disconnect());
+  lavaclient.on('queueFinish', async (queue) => {
+    queue.data.channel.safeSend('Queue has ended.');
+    await client.musicManager.destroyPlayer(queue.player.guildId);
+    queue.player.disconnect();
   });
+
+  lavaclient.on('playerCreate', (player) => {
+    console.log(`Player created for guild ${player.guildId}`);
+  });
+
+  lavaclient.on('playerDestroy', (player) => {
+    console.log(`Player destroyed for guild ${player.guildId}`);
+  });
+
+    lavaclient.on('ready', ()=> {
+      console.log('Lavaclient is ready!!!');
+    })
+
 
   return lavaclient;
 };

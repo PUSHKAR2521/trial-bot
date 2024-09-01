@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-6580783478903307">
     <title>B A C | Dashboard</title>
+    <link rel="shortcut icon" href="dist/img/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -12,6 +14,10 @@
         rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+        <!-- Google Fonts Icons  -->
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <style>
         * {
             margin: 0;
@@ -19,53 +25,206 @@
             box-sizing: border-box;
         }
 
-        @media only screen and (max-width: 527px) {
+        body {
+            background-image: url(/dist/img/mainbg.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100vw;
+            height: 100vh;
+            background-position: center;
+            color: white;
+            font-family:
+                Poppins, sans-serif;
+            font-weight: 500;
+        }
+
+        section {
+            width: 500px;
+            height: 70vh;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            /* background: rgba(255, 255, 255, 0); */
+            /* background: yellow; */
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 1);
+            backdrop-filter: blur(100px);
+            -webkit-backdrop-filter: blur(100px);
+            margin: auto;
+            padding: 10px 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+
+        .parent {
+            width: 450px;
+            height: 85%;
+            flex-direction: column;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            padding: 20px 0;
+            /* background: red; */
+            position: relative;
+            left: 5%;
+            top: 2%;
+        }
+
+        .parent::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .parent::-webkit-scrollbar-thumb {
+            /* background: #26ff0031; */
+            background: #000000;
+            border-radius: 30px;
+        }
+
+        .serverContainer {
+            width: 425px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .serverContainer>.nameIcon {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .userName {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .userName button {
+            color: #26ff00;
+            font-size: 1.5rem;
+        }
+
+        .userName span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        img{
+            margin: 0 10px;
+            border-radius: 30px;
+        }
+
+        @media only screen and (max-width: 520px) {
             section {
-                margin: 0 50px;
-                font-size: 1rem;
+                width: 300px;
+                height: 70vh;
+                padding: 15px 20px;
             }
 
-            .parent>div>span {
-                width: 80vw;
+            .serverContainer>.nameIcon {
+                gap: 10px;
             }
+        }
+
+
+
+        /* Dropdown */
+
+        .dropbtn {
+            background-color: transparent;
+            color: white;
+            font-size: 10px;
+            margin: 0 10px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
+            height: 60px;
+        }
+
+        .dropbtn:focus, .dropbtn:hover{
+            background-color: #04aa6d54;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #006e3b;
+            backdrop-filter: blur(50px);
+            width: 210px;
+            text-align: center;
+            overflow: auto;
+            left: 15px;
+            z-index: 1;
+            border-radius: 10px;
+        }
+
+        .dropdown-content a {
+            width: 100%;
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dropdown a:hover {
+            background-color: #dddddd00;
+        }
+
+        .show {
+            display: block;
         }
     </style>
 </head>
 
-<body style="background-image: url(/dist/img/bg.svg); background-repeat: no-repeat; background-size: cover; width: 100vw; height: 100vh;      background-position: center; color: white; font-family:
-    Poppins, sans-serif; 
-    font-weight: 500; overflow: hidden;">
-    <!-- <header class="logo" style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0 20px;
-    background: rgba(255, 255, 255, 0.16);
-    /* border-radius: 16px; */
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(9.4px);
-    -webkit-backdrop-filter: blur(9.4px);
-    border: 1px solid rgba(255, 255, 255, 0.33);">
-        <span>B A C</span>
-        <span><img src=""></span>
-    </header> -->
-    <%- include('includes/sheader') %>
-        <section
-            style="width: 500px; height: 80vh; padding: 0 20px; display: flex; align-items: center; justify-content: center; flex-direction: column; align-items: center; justify-content: center;
-        background: rgba(255, 255, 255, 0.16);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(9.4px);
-    -webkit-backdrop-filter: blur(9.4px);
-    border: 1px solid rgba(255, 255, 255, 0.33);
-    margin: auto; padding: 10px 0; position: relative; top: 10%; @media only screen and (max-width: 567px) {width: 300px; }">
+<body>
+    <!-- <%- include('includes/sheader') %> -->
+    <section>
+        <div class="userName">
+            <span>Logged in as :</span>
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">
+                    <img src="<%= user.displayAvatar %>" width="40" height="40" class="user-image" alt="User Image" />
+                    <%= user.global_name %>&nbsp;
+                    <span class="material-symbols-outlined">
+                        keyboard_arrow_down
+                    </span>
+                </button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="/soon">Billing &nbsp; <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M560-440q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35ZM280-320q-33 0-56.5-23.5T200-400v-320q0-33 23.5-56.5T280-800h560q33 0 56.5 23.5T920-720v320q0 33-23.5 56.5T840-320H280Zm80-80h400q0-33 23.5-56.5T840-480v-160q-33 0-56.5-23.5T760-720H360q0 33-23.5 56.5T280-640v160q33 0 56.5 23.5T360-400Zm440 240H120q-33 0-56.5-23.5T40-240v-440h80v440h680v80ZM280-400v-320 320Z"/></svg></a>
+                    <a href="/logout">Logout &nbsp; <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z"/></svg></a>
+                </div>
+            </div>
+        </div>
+        <div class="parent">
             <% if(user.displayedGuilds){ user.displayedGuilds.forEach(function(guild) { %>
-                <div class="parent"
-                    style="width: 500px; height: 80%; display: flex; align-items: center; justify-content: space-between; padding: 0 10px;  ">
-                    <div style="display: flex; align-items: center; gap: 20px;">
+                <div class="serverContainer">
+                    <div class="nameIcon">
                         <img src="<%= guild.iconURL %>" style="border-radius: 100%" width="40" height="40"
                             class="img-fluid" />
-                        <span style="font-size: 1.2rem; @media only screen and (max-width: 527px) {font-size:1rem;}">
+                        <span>
                             <%= guild.name %>
                         </span>
                     </div>
-                    <div>
+                    <div class="ContainsBtns">
                         <% if(guild.settingsUrl.includes('discordapp.com')) { %>
                             <a href="<%= guild.settingsUrl %>"
                                 style="text-decoration: none; color: white; font-size: 1.5rem;">+</a>
@@ -78,8 +237,34 @@
 
                 <% }); } else { %>
 
+                    <span>No Servers Found</span> <br>
+                    <span>Contact Owner to fix</span>
+
                     <% } %>
-        </section>
+        </div>
+    </section>
+
+    <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+        </script>
 </body>
 
 </html>

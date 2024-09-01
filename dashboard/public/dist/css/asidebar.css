@@ -1,0 +1,101 @@
+/* #sideBar {
+    width: 50px;
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
+    min-height: 100vh;
+    background-color: #6533ee;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.head {
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+}
+
+.logo {
+    display: none;
+}
+
+.logout {
+    margin-top: auto;
+    padding-bottom: 10px;
+}
+
+.labelLink, .labelLink2, .labelLink3 {
+    display: none;
+} */
+/* Sidebar container */
+#sideBar {
+    width: 50px;
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
+    min-height: 100vh;
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1000;
+    border-right: 2px solid white;
+    backdrop-filter: blur(10px);
+}
+
+/* Header section of the sidebar */
+.head {
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+}
+
+#userPic{
+    width: 24px;
+}
+
+/* Logo inside the sidebar */
+.logo {
+    display: none; /* Initially hidden since the sidebar is 50px */
+}
+
+
+/* Logout section fixed to the bottom of the viewport */
+.logout {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-bottom: 10px;
+    color: white;
+}
+
+/* Make sure labels are hidden initially */
+.labelLink0, .labelLink, .labelLink2, .labelLink3 {
+    display: none;
+}
+
+/* Overlay for darkening the rest of the content */
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 500;
+    backdrop-filter: blur(10px);
+}
+
+main {
+    margin-left: 50px;
+    padding: 20px;
+}

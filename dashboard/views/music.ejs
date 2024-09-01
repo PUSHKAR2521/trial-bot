@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Dashboard</title>
+</head>
+<body>
+
+  <input type="hidden" id="guildId" value="<%= user.guildId %>" />
+
+
+    <h1>Music Dashboard</h1>
+
+    <!-- Add Song Form -->
+    <button onclick="addToQueue()">Add Song to Queue</button>
+
+    <!-- Queue List -->
+    <h2>Current Queue</h2>
+    <ul id="queue-list">
+        <!-- Queue items will be dynamically added here -->
+    </ul>
+
+    <!-- Volume Control -->
+    <h2>Volume</h2>
+    <input type="range" min="0" max="100" id="volume-control" onchange="setVolume(this.value)" />
+
+    <!-- Bass Boost Control -->
+    <h2>Bass Boost</h2>
+    <input type="checkbox" id="bassboost-control" onchange="setBassBoost(this.checked)" /> Bass Boost
+
+    <script>
+function addToQueue() {
+  const songUrl = prompt("Enter the song URL or ID to add to the queue:");
+  const guildId = document.getElementById('guildId').value; // Ensure you have the guild ID available
+
+  if (songUrl && guildId) {
+    fetch('/music/api/music/queue/add', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ url: songUrl, guildId })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        alert("Song added to queue successfully!");
+        // Optionally, refresh the queue display
+        location.reload();
+      } else {
+        alert("Failed to add song to queue.");
+      }
+    })
+    .catch(error => {
+      console.error("Error adding song to queue:", error);
+      alert("An error occurred while adding the song to the queue.");
+    });
+  }
+}
+
+function removeFromQueue(songId) {
+  const guildId = document.getElementById('guildId').value; // Ensure you have the guild ID available
+
+  fetch('/music/api/music/queue/remove', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ songId, guildId })
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      alert("Song removed from queue successfully!");
+      // Optionally, refresh the queue display
+      location.reload();
+    } else {
+      alert("Failed to remove song from queue.");
+    }
+  })
+  .catch(error => {
+    console.error("Error removing song from queue:", error);
+    alert("An error occurred while removing the song from the queue.");
+  });
+}
+
+function setVolume(volume) {
+  const guildId = document.getElementById('guildId').value; // Ensure you have the guild ID available
+
+  fetch('/music/api/music/volume', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ volume, guildId })
+  })
+  .then(response => {
+    if (response.ok) {
+      console.log("Volume updated successfully.");
+    } else {
+      console.error("Failed to update volume.");
+    }
+  })
+  .catch(error => {
+    console.error("Error updating volume:", error);
+  });
+}
+
+function setBassBoost(bassBoost) {
+  const guildId = document.getElementById('guildId').value; // Ensure you have the guild ID available
+
+  fetch('/music/api/music/bassboost', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ bassBoost, guildId })
+  })
+  .then(response => {
+    if (response.ok) {
+      console.log("Bass boost updated successfully.");
+    } else {
+      console.error("Failed to update bass boost.");
+    }
+  })
+  .catch(error => {
+    console.error("Error updating bass boost:", error);
+  });
+}
+
+    </script>
+
+    <script>
+        // Fetch initial music data and update UI
+        async function fetchMusicData() {
+            const guildId = '<%= user.guildId %>'; // Pass guild ID from server-side rendering
+            const response = await fetch(`/music/api/music?guildId=${guildId}`);
+            const data = await response.json();
+            // Update the UI with current song and queue details
+        }
+
+        // Initial data load
+        fetchMusicData();
+    </script>
+</body>
+</html>

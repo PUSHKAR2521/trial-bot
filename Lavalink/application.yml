@@ -1,0 +1,41 @@
+server:
+  port: 5000
+  # address: 127.0.0.1
+  address: 0.0.0.0
+lavalink:
+  server:
+    password: "youshallnotpass"
+    sources:
+      youtube: false
+    filters: # All filters are enabled by default
+      volume: true
+      equalizer: true
+      karaoke: true
+      timescale: true
+      tremolo: true
+      vibrato: true
+      distortion: true
+      rotation: true
+      channelMix: true
+      lowPass: true
+  plugins:
+    - dependency: "dev.lavalink.youtube:youtube-plugin:1.7.2"
+      repository: "https://maven.lavalink.dev/releases"
+
+metrics:
+  prometheus:
+    enabled: false
+  log4j:
+    enabled: true
+
+sentry:
+  dsn: ""
+  environment: ""
+
+logging:
+  file:
+    path: ./logs/
+    level:
+      root: INFO
+      lavalink: INFO
+      lavalink-plugins: INFO

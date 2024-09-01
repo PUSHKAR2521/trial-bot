@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B A C | Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @media only screen and (max-width: 527px) {
+            section {
+                margin: 0 50px;
+                font-size: 1rem;
+            }
+
+            .parent>div>span {
+                width: 80vw;
+            }
+        }
+
+        .lContainer {
+            display: flex;
+            /* justify-content: space-between; */
+            gap: 50px;
+            flex-direction: column;
+            /* background: pink; */
+            height: 80%;
+        }
+
+        .setting {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 1.2rem;
+        }
+
+        .setting>a>img {
+            width: 25px;
+        }
+
+        .title {
+            text-align: center;
+            /* background: red; */
+            margin: 20px 0;
+            font-size: 1.5rem;
+        }
+
+        .supportlink {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 0 20px 0;
+        }
+
+        .supportlink>a>i {
+            /* background: red; */
+            font-size: 2rem;
+        }
+    </style>
+</head>
+
+<body style="background-image: url(/dist/img/mainbg.svg); background-repeat: no-repeat; background-size: cover; width: 100vw; height: 100vh;      background-position: center; color: white; font-family:
+    Poppins, sans-serif; 
+    font-weight: 500; overflow: hidden;">
+
+    <!-- The header is the topbar -->
+    <%- include('../includes/header') %>
+
+        <section style="display: flex; align-items: center; justify-content: center; width: 100vw; height: 95vh;">
+            <div class="container" style="width: 750px; height: 80vh; padding: 20px;
+                    background: rgba(255, 255, 255, 0.16);
+                    border-radius: 16px;
+                    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                    backdrop-filter: blur(9.4px);
+                    -webkit-backdrop-filter: blur(9.4px);
+                    border: 1px solid rgba(255, 255, 255, 0.33);">
+                <div class="lContainer">
+                    <div class="setting">General<a href="/general"><img src="/dist/img/setting.svg"></a>
+                    </div>
+                    <div class="setting">Moderation<a href="moderation"><img src="/dist/img/setting.svg"></a>
+                    </div>
+                    <div class="setting">Statistics<a href="statistics"><img src="/dist/img/setting.svg"></a>
+                    </div>
+                    <div class="setting">Auto Moderation<a href="autom"><img src="/dist/img/setting.svg"></a>
+                    </div>
+                    <div class="setting">Ticket<a href="ticket.ejs"><img src="/dist/img/setting.svg"></a>
+                    </div>
+                </div>
+                <div class="title">
+                    <span>Support Links</span>
+                </div>
+                <div class="supportlink">
+                    <a href="https://youtube.com/@b.a.c_gaming/"><i class='bx bxl-youtube'></i></a>
+                    <a href="https://instagram.com/b.a.c_gaming_/"><i class='bx bxl-instagram-alt'></i></a>
+                    <a href="https://discord.gg/g2xfZFDJZq"><i class='bx bxl-discord-alt'></i></a>
+                    <a href="/404"><i class='bx bxl-github'></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer includes credits and version -->
+        <%- include('../includes/footer') %>
+</body>
+
+</html>

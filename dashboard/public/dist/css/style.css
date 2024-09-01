@@ -145,6 +145,22 @@ main {
     top: 180px;
 }
 
+.desc .Line::before {
+    content: "";
+    width: 102px;
+    height: 134px;
+    background-color: yellow;
+}
+
+.lines {
+    width: 2px;
+    height: 120px;
+    top: 0px;
+    left: 38px;
+    background-color: #00FF47;
+    position: absolute;
+}
+
 .Btns {
     display: flex;
     flex-direction: column;
