@@ -38,8 +38,8 @@ module.exports = {
 
   DASHBOARD: {
     enabled: true, // enable or disable dashboard
-    baseURL: "https://8888-idx-my-bot-1721215350192.cluster-mwrgkbggpvbq6tvtviraw2knqg.cloudworkstations.dev", // base url
-    failureURL: "https://my-bot-33hv.onrender.com", // failure redirect url
+    baseURL: "https://official-bac.onrender.com/", // base url
+    failureURL: "/404", // failure redirect url
     port: "8888", // port to run the bot on
   },
 
