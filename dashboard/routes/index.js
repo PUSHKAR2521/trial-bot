@@ -1,7 +1,6 @@
 const express = require("express");
 const CheckAuth = require("../auth/CheckAuth");
 const mongoose = require('mongoose');
-const { Cluster } = require("lavaclient");
 const Status = require('../models/statusModel'); // Ensure this model is correctly defined
 const fetch = require('node-fetch'); // Ensure you have node-fetch installed
 const prettyMs = require('pretty-ms'); // Ensure you have pretty-ms installed
@@ -58,7 +57,7 @@ router.get('/serverinvite', (req, res) => res.redirect('https://discord.gg/gmDUb
 router.get('/youtube', (req, res) => res.redirect('https://www.youtube.com/@b.a.c_gaming'));
 router.get('/instagram', (req, res) => res.redirect('https://www.instagram.com/b.a.c_gaming_/'));
 
-// Route handler
+// Route handler for music
 router.get('/music', async (req, res) => {
   try {
     const guildId = req.query.guildId;
@@ -101,14 +100,12 @@ router.get('/music', async (req, res) => {
 // Route to render the status page
 router.get('/status', async (req, res) => {
   try {
-    const selectedDate = req.query.date || '';
-    
     // Get unique dates for dropdown menu
     const uniqueDates = await Status.aggregate([
       {
         $project: {
           date: {
-            $dateToString: { format: "%Y-%m-%d", date: "$timestamp", timezone: "+05:30" }
+            $dateToString: { format: "%Y-%m-%d", date: "$timestamp", timezone: "+00:00" }
           }
         }
       },
@@ -126,19 +123,52 @@ router.get('/status', async (req, res) => {
     const dateOptions = uniqueDates.map(date => date._id);
 
     // Create a date filter based on the selected date
+    const selectedDate = req.query.date || '';
     const dateFilter = selectedDate ? {
       timestamp: {
-        $gte: new Date(new Date(selectedDate).toISOString().split('T')[0] + 'T00:00:00+05:30'),
-        $lt: new Date(new Date(selectedDate).toISOString().split('T')[0] + 'T23:59:59+05:30')
+        $gte: new Date(new Date(selectedDate).toISOString().split('T')[0] + 'T00:00:00+00:00'),
+        $lt: new Date(new Date(selectedDate).toISOString().split('T')[0] + 'T23:59:59+00:00')
       }
     } : {};
 
     // Load the logged data from MongoDB based on selected date
     const statusEntries = await Status.find(dateFilter).sort({ timestamp: -1 }).limit(100).exec();
 
-    res.render('status', { statusEntries, dates: dateOptions, selectedDate });
+    // Get the latest status entry
+    const latestStatus = statusEntries.length > 0 ? statusEntries[0] : { dashboardStatus: 'Offline', botStatus: 'Offline' };
+
+    res.render('status', { 
+      statusEntries, 
+      dates: dateOptions, 
+      selectedDate,
+      dashboardStatus: latestStatus.dashboardStatus,
+      botStatus: latestStatus.botStatus
+    });
   } catch (error) {
     console.error('Error in /status route:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+// Route to get status information for a specific date
+router.get('/status-info', async (req, res) => {
+  try {
+    const { date } = req.query;
+    if (!date) return res.status(400).json({ error: 'Date is required' });
+
+    const statusEntry = await Status.findOne({ timestamp: { $gte: new Date(date + 'T00:00:00Z'), $lt: new Date(date + 'T23:59:59Z') } }).sort({ timestamp: -1 }).exec();
+
+    if (!statusEntry) return res.status(404).json({ status: 'Unknown', downtime: '' });
+
+    // Calculate downtime if the status is 'Down'
+    const downtime = statusEntry.botStatus === 'Down' ? prettyMs(Date.now() - new Date(statusEntry.timestamp)) : '';
+
+    res.json({
+      status: statusEntry.botStatus,
+      downtime
+    });
+  } catch (error) {
+    console.error('Error fetching status info:', error);
     res.status(500).send('Internal Server Error');
   }
 });

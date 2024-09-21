@@ -3,166 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-adsense-account" content="ca-pub-6580783478903307">
-    <title>B A C - Status</title>
-    <link rel="shortcut icon" href="dist/img/logo.png" type="image/x-icon">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Status Page</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
-    <link rel="stylesheet" href="dist/css/home.css" type="text/css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(function(){ 
-            $("#menu-icon").click(function(){
-                $("#2-button").css({"z-index":"-1"})
-                $("#main-section").css({"blur":"500px"})
-                $("#img-logo").css({"opacity":"0.1"})
-            })
-        })
-        $(document).ready(function(){ 
-            $("#close-icon").click(function(){
-                $("#2-button").css({"z-index":"1"})
-                $("#img-logo").css({"opacity":"1"})
-            })
-        })
-
-    </script>
     <style>
-        h1 {
-            color: #333;
-        }
+        /* styles.css */
 
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin-top: 20px;
-            background-color: transparent;
-        }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
-        th, td {
-            border: 1px solid #ccc;
-            padding: 8px;
-            text-align: center;
-        }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
 
-        th {
-            background-color: transparent;
-        }
+#calendar-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+}
 
-        select{
-            background-color: #63E;
-            width: 300px;
-            height: 45px;
-            text-align: center;
-            border-radius: 10px;
-            border: none;
-            outline: none;
-            transition: all .3s ease;
-        }
+.flatpickr-calendar {
+    width: 100%;
+    height: 100%;
+}
 
-        select:focus{
-            background-color: transparent;
-            color: #63E;
-            border: 1px solid #63E;
-        }
+.flatpickr-day {
+    cursor: pointer;
+}
 
-        option{
-            background-color: black;
-            text-align: center;
-            border-radius: 10px;
-            border: 1px solid #63E;
-            outline: none;
-        }
+.flatpickr-day:hover {
+    background-color: #f0f0f0;
+}
 
-        option:focus{
-            color: white;
-            border: 1px solid #63E;
-            outline: none;
-        }
+.flatpickr-day.active {
+    background-color: #d1e7dd;
+}
 
-        option:active{
-            border: 1px solid #63E;
-            outline: none;
-        }
-
-        select::selection{
-            color: white;
-        }
     </style>
 </head>
-<body class="inset-0 -z-10 h-full w-full items-center [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)] text-white">
-    <header class="header">
-        <div class="logo">
-            B A C
+<body class="bg-gray-100 text-gray-800">
+    <div class="container mx-auto p-6">
+        <h1 class="text-3xl font-extrabold mb-6 text-center">Status Page</h1>
+        <div class="flex justify-between items-center mb-4">
+            <div>
+                <label for="date-filter" class="block text-sm font-medium text-gray-700">Select Date:</label>
+                <input type="text" id="date-filter" class="flatpickr form-input mt-1 block w-full" placeholder="Select a date">
+            </div>
+            <div>
+                <label for="date-range" class="block text-sm font-medium text-gray-700">Filter Range:</label>
+                <select id="date-range" class="form-select mt-1 block w-full">
+                    <option value="">Select range...</option>
+                    <option value="7days">Last 7 days</option>
+                    <option value="30days">Last 30 days</option>
+                    <option value="3months">Last 3 months</option>
+                    <option value="6months">Last 6 months</option>
+                </select>
+            </div>
         </div>
-
-        <input type="checkbox" id="check">
-            <label for="check"  class="icons">
-                <i class='bx bx-menu' id="menu-icon"></i>
-                <i class='bx bx-x' id="close-icon"></i>
-            </label>
-
-        <nav>
-            <a href="/" class="transition duration-150 ease-out hover:ease-in hover:text-[#63E]">Home</a>
-            <a href="/about" class="transition duration-150 ease-out hover:ease-in hover:text-[#63E]">About</a>
-            <a href="/features" class="transition duration-150 ease-out hover:ease-in hover:text-[#63E]">Features</a>
-            <a href="/status" class="text-[#63E] transition duration-150 ease-out hover:ease-in hover:text-[#63E]">Status</a>
-            <!-- <a href="/selector" class="transition duration-150 ease-out hover:ease-in hover:text-[#63E]">Dashboard</a> -->
-        </nav>
-    </header>
-    
-    <section class="h-auto p-10 flex flex-col gap-10 items-center justify-center">
-        
-    <h1 class="text-2xl text-[#63E]">Status Page</h1>
-
-    <!-- Dropdown for selecting date -->
-    <form action="/status" method="get"  class="max-[768px]:flex flex-col items-center gap-3">
-        <label for="date">Select Date:</label>
-        <select id="date" name="date" onchange="this.form.submit()">
-            <option value="">-- Select Date --</option>
-            <% dates.forEach(date => { %>
-                <option value="<%= date %>" <%= selectedDate === date ? 'selected' : '' %>><%= date %></option>
-            <% }) %>
-        </select>
-    </form>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Date and Time (IST)</th>
-                <th>Dashboard Status</th>
-                <th>Bot Status</th>
-            </tr>
-        </thead>
-        <tbody id="status-data">
-            <% statusEntries.forEach(entry => { %>
-                <tr>
-                    <td><%= new Date(entry.timestamp).toLocaleString('en-GB', { timeZone: 'Asia/Kolkata' }) %></td>
-                    <td><%= entry.dashboardStatus %></td>
-                    <td><%= entry.botStatus %></td>
-                </tr>
-            <% }) %>
-        </tbody>
-    </table>
-    </section>
-    
-    <footer class="flex flex-col min-h-[10vh] min-w-screen gap-5">
-        <div class="footer-logo flex justify-center items-center gap-5 pt-3">
-            <img src="dist/img/logo.gif" class="h-[6vh] invert rounded-xl alt="Logo">
-            <span>B A C</span>
+        <div id="calendar-container" class="relative w-400 h-400">
+            <div id="calendar" class="w-full h-full"></div>
         </div>
-
-        <div class="footer-links flex justify-center items-center gap-10 pb-3 max-[768px]:flex-col max-[768px]:text-white">
-            <a href="/terms" class="transition duration-150 ease-out hover:ease-in hover:text-[#63E] max-[768px]:hover:text-white">Terms & Conditions</a>
-            <a href="/privacy" class="transition duration-150 ease-out hover:ease-in hover:text-[#63E] max-[768px]:hover:text-white">Privacy Policy</a>
-            <a href="/legal" class="transition duration-150 ease-out hover:ease-in hover:text-[#63E] max-[768px]:hover:text-white">Legal Notice</a>
+        <div id="status-info" class="mt-4">
+            <!-- Status info will be dynamically loaded here -->
         </div>
+    </div>
 
-        <div class="footer-links flex justify-center items-center gap-10 pb-3 max-[768px]:flex-col max-[768px]:text-white">
-            <span>Copyright © 2024 B A C Development. All rights reserved.</span>
-        </div>
-    </footer>
+    <script src="/scripts/scripts.js"></script>
 
+    <script>
+        // scripts.js
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize Flatpickr
+    flatpickr('#date-filter', {
+        dateFormat: 'Y-m-d',
+        onChange: function (selectedDates, dateStr) {
+            if (dateStr) {
+                fetchStatus(dateStr);
+            }
+        }
+    });
+
+    // Event listener for date range filter
+    document.getElementById('date-range').addEventListener('change', function () {
+        const range = this.value;
+        const endDate = new Date().toISOString().split('T')[0];
+        let startDate;
+
+        switch (range) {
+            case '7days':
+                startDate = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+                break;
+            case '30days':
+                startDate = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+                break;
+            case '3months':
+                startDate = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+                break;
+            case '6months':
+                startDate = new Date(Date.now() - 180 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+                break;
+            default:
+                startDate = '';
+        }
+
+        if (startDate) {
+            fetchStatusInRange(startDate, endDate);
+        }
+    });
+
+    function fetchStatus(date) {
+        fetch(`/status-info?date=${date}`)
+            .then(response => response.json())
+            .then(data => {
+                const info = data.status === 'Offline' ? `Status: Down for ${data.downtime}` : `Status: Online`;
+                document.getElementById('status-info').innerHTML = info;
+            })
+            .catch(error => console.error('Error fetching status:', error));
+    }
+
+    function fetchStatusInRange(startDate, endDate) {
+        // Implement range filter logic
+    }
+});
+ 
+    </script>
 </body>
-
 </html>
