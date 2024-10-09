@@ -36,9 +36,9 @@ module.exports = {
 
 async function getPingData(client) {
   let circles = {
-    good: '<:StablePing:1267378178012352512>',
-    okay: '<:FluctuationPing:1267378215127748653>',
-    bad: '<:LowPing:1267378198765899798>',
+    good: '<:StablePing:1267377729758826559>',
+    okay: '<:FluctuationPing:1267377778613944363>',
+    bad: '<:LowPing:1267377761815756921>',
   };
 
   // Simulate pinging
@@ -70,7 +70,7 @@ async function getPingData(client) {
       },
       {
         name: `${client.user.username} Uptime`,
-        value: `<:Clock:1267378232831901749> \`${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds\``,
+        value: `<:Clock:1267377800638365760> \`${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds\``,
       }
     );
 
