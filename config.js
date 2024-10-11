@@ -59,15 +59,22 @@ module.exports = {
     // Add any number of lavalink nodes here
     // Refer to https://github.com/freyacodes/Lavalink to host your own lavalink server
     LAVALINK_NODES: [
+      // {
+      //   host: "lavalinkv3-id.serenetia.com",
+      //   port: 80,
+      //   password: "BatuManaBisa",
+      //   id: "B A C Unauth Lavalink Hosting Unsecured...",
+      //   secure: false,
+      // },
       {
-        host: "lavalinkv3-id.serenetia.com",
-        port: 80,
-        password: "BatuManaBisa",
+        host: "192.168.1.14",
+        port: 5000,
+        password: "youshallnotpass",
         id: "B A C Unauth Lavalink Hosting Unsecured...",
         secure: false,
       },
       // {
-      //   host: "0.0.0.0",
+      //   host: "127.0.0.1",
       //   port: 5000,
       //   password: "youshallnotpass",
       //   id: "B A C Unauth Lavalink Hosting Unsecured...",

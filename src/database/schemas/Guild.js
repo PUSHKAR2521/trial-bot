@@ -121,7 +121,8 @@ module.exports = {
     if (!guild.id) throw new Error("Guild Id is undefined");
 
 
-  console.log(`Fetching settings for guild ID: ${guild.id}`);
+  // console.log(`Fetching settings for guild ID: ${guild.id}`);
+  console.log(`Fetching settings for Servers: ${guild.name}`);
 
     const cached = cache.get(guild.id);
     if (cached) return cached;

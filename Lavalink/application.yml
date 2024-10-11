@@ -1,7 +1,7 @@
 server:
   port: 5000
-  # address: 127.0.0.1
-  address: 0.0.0.0
+  address: 127.0.0.1
+  # address: 0.0.0.0
 lavalink:
   server:
     password: "youshallnotpass"
@@ -19,8 +19,17 @@ lavalink:
       channelMix: true
       lowPass: true
   plugins:
-    - dependency: "dev.lavalink.youtube:youtube-plugin:1.7.2"
+    - dependency: "dev.lavalink.youtube:youtube-plugin:1.8.3"
       repository: "https://maven.lavalink.dev/releases"
+      youtube:
+        ipBlock:
+        type: "INET6"
+        ips:
+          - "2001:db8::1"
+          - "2001:db8::2"
+          - "2001:db8::3"
+        rotateOnBan: true
+        search: true
 
 metrics:
   prometheus:

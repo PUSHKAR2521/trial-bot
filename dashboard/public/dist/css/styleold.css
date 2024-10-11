@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #170F0E;
+    --second-color: #3B1311;
+    --white: #fff;
+    --text-color: #FF9028;
+}
+
+html{
+        font-family: sans-serif;
+        background-image: linear-gradient(to top, var(--bg-color) 50%, var(--second-color) 100%);
+        width: 100%;
+        min-height: 100vh; /* Ensure body fills viewport height */
+        display: flex;
+        flex-direction: column; /* To help position header and footer */
+}
+
+body {
+    font-family: sans-serif;
+    background-image: linear-gradient(to top, var(--bg-color) 50%, var(--second-color) 100%);
+    width: 100%;
+    min-height: 100vh; /* Ensure body fills viewport height */
+    display: flex;
+    flex-direction: column; /* To help position header and footer */
+}
+
+/* Header.ejs Style Code Start */
+
+.headerContainer {
+    width: 100vw; /* Fix incorrect unit */
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    color: var(--text-color);
+    background-color: transparent; /* In case */
+}
+
+.logo {
+    font-size: 1.4rem;
+    color: var(--white);
+}
+
+nav {
+    display: flex;
+}
+
+ul {
+    display: flex;
+    gap: 15px;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all .2s ease;
+}
+
+a:hover {
+    color: var(--white);
+}
+
+/* Header.ejs Style Code End */
+
+/* Footer.ejs Style Code Start */
+
+.footerContainer{
+    position: absolute;
+    bottom: 0; /* Stick the footer to the bottom */
+    width: 100vw;
+}
+
+/* Footer.ejs Style Code End */
+
+/* Landing.ejs Style Code Start */
+
+section {
+    position: relative;
+}
+
+.landingContainer {
+    position: absolute;
+    width: 100vw; /* Fix incorrect unit */
+    height: calc(100vh - 50px); /* Adjust height to take remaining space after header */
+    top: 50px; /* Start below header */
+}
+
+/* Landing.ejs Style Code End */
