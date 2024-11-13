@@ -53,7 +53,7 @@ router.get('/', (req, res) => res.render('landing'));
 // router.get('/terms', (req, res) => res.render('termscondition'));
 // router.get('/legal', (req, res) => res.render('legalnotice'));
 // router.get('/index', (req, res) => res.render('index'));
-// router.get('/status', (req, res) => res.redirect('https://stats.uptimerobot.com/VzvnOi0k2X'));
+router.get('/status', (req, res) => res.redirect('https://stats.uptimerobot.com/VzvnOi0k2X'));
 router.get('/invite', (req, res) => res.redirect('https://discord.com/oauth2/authorize?client_id=1178318128430731264'));
 router.get('/serverinvite', (req, res) => res.redirect('https://discord.gg/gmDUbQ56py'));
 router.get('/youtube', (req, res) => res.redirect('https://www.youtube.com/@b.a.c_gaming'));
