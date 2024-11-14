@@ -20,8 +20,8 @@ client.loadCommands("src/commands");
 client.loadContexts("src/contexts");
 client.loadEvents("src/events");
 
-// Find unhandled promise rejections
-process.on("unhandledRejection", (err) => client.logger.error(`Unhandled exception`, err));
+// // Find unhandled promise rejections
+// process.on("unhandledRejection", (err) => client.logger.error(`Unhandled exception`, err));
 
 (async () => {
   // Check for updates
