@@ -62,7 +62,7 @@ process.on("unhandledRejection", (err) => client.logger.error(`Unhandled excepti
 
     
 // Endpoint to return bot status data for AJAX refresh
-app.get('/api/status', (req, res) => {
+app.get('/status', (req, res) => {
     osUtils.cpuUsage((cpuPercent) => {
         const statusData = {
             status: client.ws.status === 0 ? 'All Systems are Operational' : 'Offline',
