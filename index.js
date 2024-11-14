@@ -50,7 +50,7 @@ process.on("unhandledRejection", (err) => client.logger.error(`Unhandled excepti
   const socket = ioClient('https://officialbac-status.onrender.com'); // Connect to dashboard server
   
   const app = express();
-  const PORT = process.env.STATUS_PORT || 8888; // Set the port here
+  const PORT = process.env.PORT; // Set the port here
 
   app.use(cors());
   app.set('view engine', 'ejs');
@@ -80,7 +80,7 @@ process.on("unhandledRejection", (err) => client.logger.error(`Unhandled excepti
   setInterval(() => {
     osUtils.cpuUsage((cpuPercent) => {
       const statusData = {
-        status: client.ws.status === 0 ? 'Online' : 'Offline',
+        status: client.ws.status === 0 ? '🟢 All Systems are Operational' : '🔴 All Systems are down',
         uptime: prettyMs ? prettyMs(client.uptime || 0) : 'N/A',
         cpuUsage: (cpuPercent * 100).toFixed(2),
         memoryUsage: (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2),
