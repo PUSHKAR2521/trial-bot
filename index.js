@@ -20,8 +20,6 @@ client.loadCommands("src/commands");
 client.loadContexts("src/contexts");
 client.loadEvents("src/events");
 
-// Find unhandled promise rejections
-process.on("unhandledRejection", (err) => client.logger.error(`Unhandled exception`, err));
 
 (async () => {
     // Check for updates
@@ -62,7 +60,7 @@ process.on("unhandledRejection", (err) => client.logger.error(`Unhandled excepti
 
     
 // Endpoint to return bot status data for AJAX refresh
-app.get('/statusapi', (req, res) => {
+app.get('/api/status', (req, res) => {
     osUtils.cpuUsage((cpuPercent) => {
         const statusData = {
             status: client.ws.status === 0 ? 'All Systems are Operational' : 'Offline',
@@ -73,6 +71,10 @@ app.get('/statusapi', (req, res) => {
         res.json(statusData);
     });
 });
+
+    
+// Find unhandled promise rejections
+process.on("unhandledRejection", (err) => client.logger.error(`Unhandled exception`, err));
 
 
     // Emit bot status periodically
