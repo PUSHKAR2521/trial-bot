@@ -66,7 +66,7 @@ client.loadEvents("src/events");
   app.get('/api/status', (req, res) => {
     osUtils.cpuUsage((cpuPercent) => {
       const statusData = {
-        status: client.ws.status === 0 ? 'All Systems are Operational' : 'Offline',
+        status: client.ws.status === 0 ? '🟢 All Systems are Operational' : '🔴 All Systems are down',
         uptime: prettyMs ? prettyMs(client.uptime || 0) : 'N/A',
         cpuUsage: (cpuPercent * 100).toFixed(2),
         memoryUsage: (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2),
