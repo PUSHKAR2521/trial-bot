@@ -76,6 +76,10 @@ client.loadEvents("src/events");
     client.logger.log("Status accessed at /api/status");
   });
 
+  app.get('/', function (req, res) {
+    res.send('Hello B A C is Running Fine 🤞')
+  })
+
   // Emit bot status periodically
   setInterval(() => {
     osUtils.cpuUsage((cpuPercent) => {
