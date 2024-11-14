@@ -60,6 +60,21 @@ process.on("unhandledRejection", (err) => client.logger.error(`Unhandled excepti
       prettyMs = (await import('pretty-ms')).default;
     })();
 
+    
+// Endpoint to return bot status data for AJAX refresh
+app.get('/api/status', (req, res) => {
+    osUtils.cpuUsage((cpuPercent) => {
+        const statusData = {
+            status: client.ws.status === 0 ? 'All Systems are Operational' : 'Offline',
+            uptime: prettyMs ? prettyMs(client.uptime || 0) : 'N/A',
+            cpuUsage: (cpuPercent * 100).toFixed(2),
+            memoryUsage: (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2),
+        };
+        res.json(statusData);
+    });
+});
+
+
     // Emit bot status periodically
     setInterval(() => {
       osUtils.cpuUsage((cpuPercent) => {
