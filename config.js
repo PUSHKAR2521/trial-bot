@@ -37,7 +37,7 @@ module.exports = {
   },
 
   DASHBOARD: {
-    enabled: true, // enable or disable dashboard
+    enabled: false, // enable or disable dashboard
     baseURL: "https://official-bac.onrender.com", // base url
     failureURL: "/404", // failure redirect url
     port: "8888", // port to run the bot on
