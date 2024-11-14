@@ -50,7 +50,7 @@ process.on("unhandledRejection", (err) => client.logger.error(`Unhandled excepti
   const socket = ioClient('https://officialbac-status.onrender.com'); // Connect to dashboard server
   
   const app = express();
-  const PORT = process.env.STATUS_PORT; // Set the port here
+  const PORT = process.env.STATUS_PORT || 8888; // Set the port here
 
   app.use(cors());
   app.set('view engine', 'ejs');
