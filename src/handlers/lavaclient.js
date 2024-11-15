@@ -35,8 +35,19 @@ module.exports = (client) => {
     client.logger.log(`Node "${node.id}" connected`);
   });
 
+  // Reconnection feature for disconnected nodes
   lavaclient.on('nodeDisconnect', (node) => {
-    client.logger.log(`Node "${node.id}" disconnected`);
+    client.logger.log(`Node "${node.id}" disconnected. Attempting to reconnect...`);
+    
+    const reconnectInterval = setInterval(async () => {
+      try {
+        await node.connect(); // Attempt to reconnect
+        client.logger.log(`Node "${node.id}" reconnected successfully`);
+        clearInterval(reconnectInterval); // Stop trying once connected
+      } catch (error) {
+        client.logger.error(`Reconnection attempt for node "${node.id}" failed: ${error.message}`);
+      }
+    }, 5000); // Attempt to reconnect every 5 seconds
   });
 
   lavaclient.on('nodeError', (node, error) => {
@@ -51,7 +62,7 @@ module.exports = (client) => {
     let player = lavaclient.players.get(queue.guildId);
     if (!player) {
       player = lavaclient.createPlayer(queue.guildId);
-      console.log('Player Created Successfully.')
+      console.log('Player Created Successfully.');
     }
 
     const fields = [];
@@ -99,10 +110,9 @@ module.exports = (client) => {
     console.log(`Player destroyed for guild ${player.guildId}`);
   });
 
-    lavaclient.on('ready', ()=> {
-      console.log('Lavaclient is ready!!!');
-    })
-
+  lavaclient.on('ready', () => {
+    console.log('Lavaclient is ready!!!');
+  });
 
   return lavaclient;
 };
