@@ -73,7 +73,7 @@ client.loadEvents("src/events");
       };
       res.json(statusData);
     });
-    client.logger.log("Status accessed at /api/status");
+    // client.logger.log("Status accessed at /api/status");
   });
 
   app.get('/', function (req, res) {
