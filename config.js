@@ -64,7 +64,7 @@ module.exports = {
         "port": 8888,
         "id": "LocalNode from Lenovo",
         "password": "youshallnotpass",
-        "secure": false
+        "secure": true
       },
       // {
       //   host: "192.168.1.14",
