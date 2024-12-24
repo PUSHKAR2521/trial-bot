@@ -59,20 +59,20 @@ module.exports = {
     // Add any number of lavalink nodes here
     // Refer to https://github.com/freyacodes/Lavalink to host your own lavalink server
     LAVALINK_NODES: [
-      {
-        "host": "officialbaclavalink.onrender.com",
-        "port": 8888,
-        "id": "LocalNode from OfficialBacLavalink",
-        "password": "youshallnotpass",
-        "secure": true,
-      },
       // {
-      //   host: "192.168.1.14",
-      //   port: 5000,
-      //   password: "youshallnotpass",
-      //   id: "B A C Unauth Lavalink Hosting Unsecured...",
-      //   secure: false,
+      //   "host": "officialbaclavalink.onrender.com",
+      //   "port": 8888,
+      //   "id": "LocalNode from OfficialBacLavalink",
+      //   "password": "youshallnotpass",
+      //   "secure": true,
       // },
+      {
+        host: "lavalink.jirayu.net",
+        port: 2334,
+        password: "youshallnotpass",
+        id: "Jirayu dotNET",
+        secure: false,
+      },
       // {
       //   host: "127.0.0.1",
       //   port: 5000,
