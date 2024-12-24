@@ -67,10 +67,10 @@ module.exports = {
       //   "secure": true,
       // },
       {
-        host: "lavalink.jirayu.net",
-        port: 2334,
-        password: "youshallnotpass",
-        id: "Jirayu dotNET",
+        host: "lavav3.prplmoe.me",
+        port: 1164,
+        password: "prplmoe.me",
+        id: "Koi Node V3",
         secure: false,
       },
       // {
