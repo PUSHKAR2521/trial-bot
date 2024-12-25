@@ -64,7 +64,7 @@ module.exports = {
         "port": 11662,
         "id": "LocalNode from Lenovo",
         "password": "youshallnotpass",
-        "secure": false,
+        "secure": false
       },
       // {
       //   host: "lavav3.prplmoe.me",
