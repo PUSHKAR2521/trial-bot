@@ -60,9 +60,9 @@ module.exports = {
     // Refer to https://github.com/freyacodes/Lavalink to host your own lavalink server
     LAVALINK_NODES: [
       {
-        "host": "officialbaclavalink.onrender.com",
+        "host": "103.85.9.128",
         "port": 8888,
-        "id": "LocalNode from OfficialBacLavalink",
+        "id": "LocalNode from Lenovo",
         "password": "youshallnotpass",
         "secure": false,
       },
