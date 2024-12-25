@@ -66,13 +66,13 @@ module.exports = {
         "password": "youshallnotpass",
         "secure": false
       },
-      // {
-      //   host: "lavav3.prplmoe.me",
-      //   port: 1164,
-      //   password: "prplmoe.me",
-      //   id: "Koi Node V3",
-      //   secure: false,
-      // },
+      {
+        host: "lava-v3.ajieblogs.eu.org",
+        port: 80,
+        password: "https://dsc.gg/ajidevserver",
+        id: "Ajie Blogs Node V3",
+        secure: false,
+      },
       // {
       //   host: "127.0.0.1",
       //   port: 5000,
