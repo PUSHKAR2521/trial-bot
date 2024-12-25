@@ -61,7 +61,7 @@ module.exports = {
     LAVALINK_NODES: [
       {
         "host": "0.tcp.in.ngrok.io",
-        "port": 11662,
+        "port": 11580,
         "id": "LocalNode from Lenovo",
         "password": "youshallnotpass",
         "secure": false
