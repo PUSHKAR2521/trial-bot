@@ -59,13 +59,13 @@ module.exports = {
     // Add any number of lavalink nodes here
     // Refer to https://github.com/freyacodes/Lavalink to host your own lavalink server
     LAVALINK_NODES: [
-      {
-        "host": "0.tcp.in.ngrok.io",
-        "port": 11580,
-        "id": "LocalNode from Lenovo",
-        "password": "youshallnotpass",
-        "secure": false
-      },
+      // {
+      //   "host": "0.tcp.in.ngrok.io",
+      //   "port": 11580,
+      //   "id": "LocalNode from Lenovo",
+      //   "password": "youshallnotpass",
+      //   "secure": false
+      // },
       {
         host: "lava-v3.ajieblogs.eu.org",
         port: 80,
