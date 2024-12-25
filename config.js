@@ -60,8 +60,8 @@ module.exports = {
     // Refer to https://github.com/freyacodes/Lavalink to host your own lavalink server
     LAVALINK_NODES: [
       {
-        "host": "103.85.9.128",
-        "port": 8888,
+        "host": "0.tcp.in.ngrok.io",
+        "port": 11662,
         "id": "LocalNode from Lenovo",
         "password": "youshallnotpass",
         "secure": false,
